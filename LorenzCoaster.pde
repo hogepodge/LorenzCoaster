@@ -163,21 +163,20 @@ PImage yzPlane;
 
 float dx, dy, dz, norm;
 
-int frame;
+void settings()
+{
+  size( 800, 400, P3D );
+}
 
 void setup()
 {
-  size( 800, 400, P3D);
-  
   background( 0 );
 
-  
   lorenz = new Lorenz( 4000 );
   for (int i = 0; i < 150; ++i){
   lorenz.iterate();}
-  coasterCam = new Camera();  
-  
-  frame = 0;
+  coasterCam = new Camera();
+
   println("setup");
 }
 
