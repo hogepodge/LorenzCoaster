@@ -2,59 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Lorenz Coaster &mdash; Built with p5.js by Chris Hoge</title>
+  <title>Lorenz Coaster</title>
   <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAQAAVzABAEAjBQAaDwYAWjUGAGE6CQBrQQ0ATS8PAFhAJwBUQC8AbFI6AHVXPACBZk4A4NrWAPb19QAAAAAAAMmZmZmZmgAJIwAAAAAAcMIjPjA+PjAKpxIuMDMzMAm0Ii4zMzMACaIiLt3dMAAJtyIuIzPQAAm0Un5yM+IzKLRkfncy4iIotRF+dyLkIiq0QX53F+EiGrQUTkd34iIatEVu7u5iIVrBVVRBRFRVbAtGZGZla2uwAMu7u7u8vADAAwAAgAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIABAADAAwAA" />
   <style>
-    body {
-      background-color: #333;
-      color: #bbb;
-      font-family: Lucida Grande, Lucida Sans, Arial, Helvetica Neue, Verdana, Geneva, sans-serif;
+    * { margin: 0; padding: 0; }
+    body { background: #000; overflow: hidden; }
+    canvas { display: block; }
+    #credits {
+      position: fixed;
+      bottom: 12px;
+      left: 16px;
+      font-family: Lucida Grande, Lucida Sans, Arial, sans-serif;
       font-size: 11px;
-      font-weight: normal;
-      line-height: 1.5em;
+      color: #777;
     }
-    a, a:link, a:visited, a:active, a:hover {
-      color: #cdcdcd;
-      text-decoration: underline;
-    }
-    h1 {
-      font-family: Arial, Helvetica Neue, Verdana, Geneva, sans-serif;
-      width: 100%;
-      letter-spacing: 0.1em;
-      margin-bottom: 1em;
-      font-size: 1.65em;
-    }
-    canvas {
-      display: block;
-      outline: 0;
-      margin-bottom: 1.5em;
-    }
-    #content {
-      margin: 50px auto 0 auto;
-      padding: 25px 25px 15px 25px;
-      width: 800px;
-      min-width: 300px;
-      overflow: auto;
-      border-left: 1px solid #444;
-      border-top: 1px solid #444;
-      border-right: 1px solid #333;
-      border-bottom: 1px solid #333;
-      background-color: #3d3d3d;
-    }
+    #credits a { color: #999; }
   </style>
 </head>
 <body>
-  <div id="content">
-    <div id="canvas-container"></div>
-    <h1>Lorenz Roller Coaster</h1>
-    <p>A first-person rendering of the Lorenz Attractor.</p>
-    <p>Source code: <a href="sketch.js">sketch.js</a> </p>
-    <p>
-      Built by Chris Hoge with <a href="https://p5js.org" title="p5.js">p5.js</a>
-      (ported from the original <a href="https://processing.org" title="Processing">Processing</a> sketch).
-    </p>
+  <div id="canvas-container"></div>
+  <div id="credits">
+    Lorenz Roller Coaster &mdash; Chris Hoge &mdash;
+    <a href="sketch.js">source</a> &mdash;
+    built with <a href="https://p5js.org">p5.js</a>
   </div>
-  <script src="https://cdn.jsdelivr.net/npm/p5@1.11.11/lib/p5.min.js"></script>
+  <script src="p5.min.js"></script>
   <script src="sketch.js"></script>
 </body>
 </html>

@@ -32,12 +32,16 @@ class Lorenz {
     //   x → [-width/2,  width/2]
     //   y → [-height/2, height/2]
     //   z → [0, height]
-    this.m_xmult = width  / (21.529194 - this.m_xmin);
-    this.m_ymult = height / (29.454922 - this.m_ymin);
-    this.m_zmult = height / 54.32006;
+    this._updateScale();
 
     this.m_index = 0;
     this.iterate();
+  }
+
+  _updateScale() {
+    this.m_xmult = width  / (21.529194 - this.m_xmin);
+    this.m_ymult = height / (29.454922 - this.m_ymin);
+    this.m_zmult = height / 54.32006;
   }
 
   iterate() {
@@ -165,13 +169,19 @@ let lorenz;
 let coasterCam;
 
 function setup() {
-  const canvas = createCanvas(800, 400, WEBGL);
+  const canvas = createCanvas(windowWidth, windowHeight, WEBGL);
   canvas.parent('canvas-container');
   background(0);
 
   lorenz = new Lorenz(4000);
   for (let i = 0; i < 150; i++) lorenz.iterate();
   coasterCam = new Camera();
+}
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+  lorenz._updateScale();
+  coasterCam._aspect = windowWidth / windowHeight;
 }
 
 function draw() {
